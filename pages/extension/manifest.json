@@ -3,30 +3,8 @@
     "version": "0.2",
     "description": "Chrome plugin to block malicious emails within gmail.",
     "manifest_version": 3,
-    "permissions": [
-        "tabs"
-    ],
     "action": {
-        "default_popup": "warningmessage.html",
+        "default_popup": "index.html",
         "default_logo": "../static/logo-no-background.svg"
-    },
-    "background": {
-        "service_worker": "background.js"
-    },
-    "content_scripts": [
-        {
-            "matches": [
-                "https://mail.google.com/mail/u/*/#inbox/*"
-            ],
-            "js": [
-                "content.js"
-            ]
-        }
-    ],
-    "oauth2": {
-        "client_id": "532276903581-o51emkfb244rk3h50scacl02lqe82gb3.apps.googleusercontent.com",
-        "scopes": [
-            "https: //www.googleapis.com/auth/gmail.readonly"
-        ]
     }
 }
