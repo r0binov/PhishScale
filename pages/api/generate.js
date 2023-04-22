@@ -29,7 +29,7 @@ export default async function (req, res) {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: generatePrompt(animal),
-      temperature: 0.6,
+      temperature: 0.1,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
@@ -49,7 +49,5 @@ export default async function (req, res) {
 }
 
 function generatePrompt(animal) {
-  const capitalizedAnimal =
-    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Generate a score between 1 and 10 on how trustworthy is this text`;
+  return `Generate a score between 1 and 10 on how trustworthy is this text: `;
 }

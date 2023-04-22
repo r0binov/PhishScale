@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="content.js">
+        // Set up the Gmail API client
+        const CLIENT_ID = '532276903581-o51emkfb244rk3h50scacl02lqe82gb3.apps.googleusercontent.com';
+        const API_KEY = 'AIzaSyAZc32Hd67wjLNU3GCNBCUdOCqNBPQmxdQ';
+        const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest'];
+        const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly';
+
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        });
+
+        // Call the Gmail API to get the raw email data for a specific email
+        function getEmailData(emailId) {
+            gapi.client.gmail.users.messages.get({
+                'userId': 'me',
+                'id': emailId,
+                'format': 'raw'
+            }).then(function (response) {
+                const raw = response.result.raw;
+                // Here you can do something with the raw email data
+                filterEmailData(raw);
+                console.log(raw);
+            }, function (error) {
+                console.error(error);
+            });
+        }
+
+        function filterEmailData(rawEmailData) {
+            //returns links and sender email addresses 
+        }
+
+        //test against hunter.io and chatgpt api 
+
+        //
+
+
+    </script>
+</body>
+
+</html>

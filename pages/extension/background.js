@@ -7,7 +7,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         // Retrieve the email ID from the URL of the active tab
         var emailId = getEmailIdFromUrl(tab.url);
         // Call your function to retrieve the email data
-        getEmailData(emailId);
+        content.getEmailData(emailId);
     }
 });
 
