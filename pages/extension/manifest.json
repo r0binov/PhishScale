@@ -11,17 +11,15 @@
         "default_logo": "../static/logo-no-background.svg"
     },
     "background": {
-        "service_worker": "content.js"
+        "service_worker": "background.js"
     },
     "content_scripts": [
         {
             "matches": [
-                "https://mail.google.com/*",
-                "https://inbox.google.com/*",
                 "https://mail.google.com/mail/u/*/#inbox/*"
             ],
             "js": [
-                "script.js"
+                "content.js"
             ]
         }
     ],
