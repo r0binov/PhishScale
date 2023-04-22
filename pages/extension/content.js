@@ -23,8 +23,19 @@ function generateCompletion(apiKey, completionsEndpoint, inputText) {
         const response = JSON.parse(httpRequest.responseText);
 
         if (response.hasOwnProperty('choices') && response.choices.length > 0) {
-          const output = document.getElementById('output');
-          output.innerText = response.choices[0].text;
+            let completion = response.choices[0].text;
+
+            completion = completion.replace(/legitimate/g, '<b style="color:green;">legitimate</b>');
+            completion = completion.replace(/trustworthy/g, '<b style="color:green">trustworthy</b>');
+            completion = completion.replace(/suspicious/g, '<b style="color:red">suspicious</b>');
+            completion = completion.replace(/illegitimate/g, '<b style="color:red;">illegitimate</b>');
+            completion = completion.replace(/not/g, '<b style="color:black;">NOT</b>');
+
+            // Print the generated completion to the console
+            console.log(completion);
+            // Populate the <p/> with the colored completion
+            const result = document.getElementById("result");
+            result.innerHTML = completion;
         } else {
           console.error(`Error generating completion: ${response.error.message}`);
         }
