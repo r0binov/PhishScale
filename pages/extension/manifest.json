@@ -22,7 +22,7 @@
                 "https://mail.google.com/mail/u/*/#inbox/*"
             ],
             "js": [
-                "content.js"
+                "script.js"
             ]
         }
     ],
