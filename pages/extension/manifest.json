@@ -1,0 +1,35 @@
+{
+    "name": "phishscale",
+    "version": "0.2",
+    "description": "Chrome plugin to block malicious emails within gmail.",
+    "manifest_version": 3,
+    "permissions": [
+        "tabs",
+        "https: //www.googleapis.com/auth/gmail.readonly"
+    ],
+    "action": {
+        "default_popup": "../src/warningmessage.html",
+        "default_logo": "../static/logo-no-background.svg"
+    },
+    "background": {
+        "service_worker": "content.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://mail.google.com/*",
+                "https://inbox.google.com/*",
+                "https://mail.google.com/mail/u/*/#inbox/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "oauth2": {
+        "client_id": "532276903581-o51emkfb244rk3h50scacl02lqe82gb3.apps.googleusercontent.com",
+        "scopes": [
+            "https: //www.googleapis.com/auth/gmail.readonly"
+        ]
+    }
+}
