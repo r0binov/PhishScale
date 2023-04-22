@@ -15,7 +15,7 @@ gapi.client.init({
 });
 
 // Call the Gmail API to get the raw email data for a specific email
-export function getEmailData(emailId) {
+function getEmailData(emailId) {
     gapi.client.gmail.users.messages.get({
         'userId': 'me',
         'id': emailId,
@@ -31,5 +31,10 @@ export function getEmailData(emailId) {
 }
 
 function filterEmailData(rawEmailData) {
-
+    //returns links and sender email addresses 
 }
+
+//test against hunter.io and chatgpt api 
+
+//
+
