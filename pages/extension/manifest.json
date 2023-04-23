@@ -6,5 +6,10 @@
     "action": {
         "default_popup": "index.html",
         "default_logo": "../static/logo-no-background.svg"
+    },
+    "icons": { 
+        "16": "logo.png",
+        "48": "logo.png",
+        "128": "logo.png" 
     }
 }
